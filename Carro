@@ -1,0 +1,33 @@
+class Motor{
+    int potencia;
+
+    Motor(int potencia){
+        this.potencia =potencia;
+    }
+    void funcionar(){
+        System.out.println("Esta tudo certo, o motor está funcionando");
+    }
+}
+class Carro {
+    String modelo;
+    Motor motor;
+
+    Carro(String modelo, int potenciaMotor){
+        this.modelo = modelo;
+        this.motor = new Motor(potenciaMotor);
+    }
+    void ligar(){
+        System.out.println("O carro ligouuu");
+        motor.funcionar();
+    }
+    public String toString(){
+        return "Modelo:" + modelo + ", Potencia: "+ motor.potencia;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Carro meuCarro = new Carro("Fusca",100);
+        meuCarro.ligar();
+        System.out.println(meuCarro);
+        }
+    }
