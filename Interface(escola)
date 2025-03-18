@@ -1,0 +1,92 @@
+class Funcionario{
+    String nome;
+    String inscricao;
+    double salario;
+    String turno;
+
+    Funcionario(String nome, String inscricao, double salario, String turno){
+        this.nome = nome;
+        this.inscricao = inscricao;
+        this.salario = salario;
+        this.turno = turno;
+    }
+    void funcao(){
+        System.out.println("Função do funcionario: "+ nome +"nao definida");
+    }
+    void horario(){
+        System.out.println("Turno de trabalho : "+ turno);
+    }
+
+}
+class Diretor extends Funcionario{
+
+    Diretor(String nome, String inscricao, double salario, String turno) {
+        super(nome, inscricao, salario, turno);
+    }
+    @Override
+    void funcao(){
+        System.out.println("Nome do diretor:" + nome);
+        System.out.println("Função: criar descontos, encomendar fardas e gerenciar professores");
+    }
+
+}
+class Coordenador extends Funcionario{
+    Coordenador(String nome, String inscricao, double salario, String turno) {
+        super(nome, inscricao, salario, turno);
+    }
+   void funcao(){
+       System.out.println("Nome do coordenador:"+ nome );
+       System.out.println("Função: auxiliar professores e organizar festivais");
+   }
+}
+class Secretario extends  Funcionario{
+    Secretario(String nome, String inscricao, double salario, String turno) {
+        super(nome, inscricao, salario, turno);
+    }
+
+    @Override
+    void funcao() {
+        System.out.println("Nome do secretario:"+ nome );
+        System.out.println("Função: Recebr encomendas e pagamentos");
+    }
+}
+class Professor extends Funcionario{
+    String disciplina;
+
+    Professor(String nome, String inscricao, double salario, String turno, String disciplina) {
+        super(nome, inscricao, salario, turno);
+        this.disciplina = disciplina;
+    }
+
+    @Override
+    void funcao() {
+        System.out.println("Nome do professor:"+nome);
+        System.out.println("Função: lecionar e criar atividades.");
+    }
+    void lecionar(){
+        System.out.println("O professor "+ nome +" esta lecionando a disciplina"+ disciplina);
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Funcionario coordenador = new Coordenador("Paulo Santos","69875",6000,"integral");
+        Funcionario diretor = new Diretor("Anna Silva","68745",9000,"integral");
+        Funcionario secretario = new Secretario("Fabio Souza","65742",5000,"integral");
+        Funcionario professor = new Professor("Alice Melo","65841",5500,"manha", "matematica");
+
+        diretor.horario();
+        diretor.funcao();
+
+        coordenador.horario();
+        coordenador.funcao();
+
+        secretario.horario();
+        secretario.funcao();
+
+        professor.horario();
+        professor.funcao();
+        ((Professor) professor).lecionar();
+    }
+}
